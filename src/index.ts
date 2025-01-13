@@ -15,11 +15,13 @@ const port = 3000;
 // Body parser middleware
 app.use(bodyParser.json());
 
+// Use CORS middleware
+app.use(cors());  // This will allow all origins by default
+
 // Apply the API key middleware to all routes
 app.use(apiKeyMiddleware);
 
-// Use CORS middleware
-app.use(cors());  // This will allow all origins by default
+
 
 // MongoDB connection
 mongoose.connect(process.env.DB_URL as string)
